@@ -28,11 +28,13 @@ export class UsersService
   {
     const { name, email, password, phone_number } = registerDto;
 
+
     const isEmailExist = await this.prisma.user.findUnique({
       where: {
         email,
       },
     });
+
     if (isEmailExist)
     {
       throw new BadRequestException('User already exist with this email!');
