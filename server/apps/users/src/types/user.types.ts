@@ -12,11 +12,12 @@ export class ErrorType {
 
 @ObjectType()
 export class RegisterResponse {
-  // @Field()
-  // activation_token: string;
-  @Field(() => User)
-  user: User | unknown;
+  @Field()
+  activation_token: string;
 
+  @Field()
+  activationCode: string;
+ 
   @Field(() => ErrorType, { nullable: true })
   error?: ErrorType;
 }
