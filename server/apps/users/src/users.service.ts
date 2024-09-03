@@ -241,7 +241,7 @@ export class UsersService
       activationCode: resetPasswordUrl,
     });
 
-    return { message: `Your forgot password request succesful!` };
+    return {forgotPasswordToken, message: `Your forgot password request succesful!` };
   }
 
   // reset password

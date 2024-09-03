@@ -55,6 +55,9 @@ export class LogoutResposne {
 @ObjectType()
 export class ForgotPasswordResponse {
   @Field()
+  forgotPasswordToken: string;
+  
+  @Field()
   message: string;
 
   @Field(() => ErrorType, { nullable: true })
