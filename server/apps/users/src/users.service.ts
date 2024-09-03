@@ -210,13 +210,13 @@ export class UsersService
       this.configService.get<string>('CLIENT_SIDE_URI') +
       `/reset-password?verify=${forgotPasswordToken}`;
 
-    // await this.emailService.sendMail({
-    //   email,
-    //   subject: 'Reset your Password!',
-    //   template: './forgot-password',
-    //   name: user.name,
-    //   activationCode: resetPasswordUrl,
-    // });
+    await this.emailService.sendMail({
+      email,
+      subject: 'Reset your Password!',
+      template: './forgot-password',
+      name: user.name,
+      activationCode: resetPasswordUrl,
+    });
 
     return { message: `Your forgot password request succesful!` };
   }
