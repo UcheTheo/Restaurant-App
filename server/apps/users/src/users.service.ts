@@ -170,6 +170,29 @@ export class UsersService
     }
   }
 
+   // get logged in user
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async getLoggedInUser(req: any) {
+    const user = req.user;
+    const refreshToken = req.refreshtoken;
+    const accessToken = req.accesstoken;
+    return { user, refreshToken, accessToken };
+  }
+
+  // log out user
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async Logout(req: any) {
+    req.user = null;
+    req.refreshtoken = null;
+    req.accesstoken = null;
+    return { message: 'Logged out successfully!' };
+  }
+
+  // get all users service
+  async getUsers() {
+    return this.prisma.user.findMany({});
+  }
+
   // compare with hashed password
   async comparePassword(
     password: string,
